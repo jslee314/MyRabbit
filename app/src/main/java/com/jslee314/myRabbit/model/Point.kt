@@ -1,8 +1,13 @@
 package com.jslee314.myRabbit.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "point_table")
 data class Point (
-    var health: Int, // HP
-    var mind: Int, // MP (Mana)
-    var social: Int, // SP (Skill)
-    //var attack: Int  // AP
+    @PrimaryKey @ColumnInfo(name = "power")
+    val power: POWER,
+    val point: String,
+    var pointValue: Int,
 )
