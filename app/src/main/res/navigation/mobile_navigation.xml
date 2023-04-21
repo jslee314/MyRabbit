@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_rabbit">
+    app:startDestination="@+id/navigation_main">
 
     <fragment
-        android:id="@+id/navigation_rabbit"
-        android:name="com.jslee314.myRabbit.ui.rabbit.RabbitFragment"
+        android:id="@+id/navigation_main"
+        android:name="com.jslee314.myRabbit.ui.main.MainFragment"
         android:label="@string/title_rabbit"
-        tools:layout="@layout/fragment_rabbit" />
+        tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

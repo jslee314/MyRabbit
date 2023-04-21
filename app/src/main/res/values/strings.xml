@@ -3,4 +3,7 @@
     <string name="title_rabbit">Rabbit</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="hp">HP</string>
+    <string name="sp">SP</string>
+    <string name="mp">MP</string>
 </resources>

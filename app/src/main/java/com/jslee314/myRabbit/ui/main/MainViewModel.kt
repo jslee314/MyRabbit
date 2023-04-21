@@ -1,10 +1,10 @@
-package com.jslee314.myRabbit.ui.rabbit
+package com.jslee314.myRabbit.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class RabbitViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
