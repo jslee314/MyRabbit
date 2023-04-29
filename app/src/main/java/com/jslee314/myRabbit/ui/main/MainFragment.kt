@@ -5,13 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.jslee314.myRabbit.AppApplication
 import com.jslee314.myRabbit.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
+
+  //  private lateinit var mainViewModel : MainViewModel
+//    by viewModels { MainViewModelFactory((this as AppApplication).database)
+//    }
 
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
@@ -26,11 +33,6 @@ class MainFragment : Fragment() {
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        mainViewModel.text.observe(viewLifecycleOwner) {
-           // textView.text = it
-        }
 
         mainViewModel.progressBarHP.observe(viewLifecycleOwner){
             it?.let {

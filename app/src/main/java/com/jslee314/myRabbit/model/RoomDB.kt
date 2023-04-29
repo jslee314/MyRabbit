@@ -67,12 +67,14 @@ abstract class RoomDB : RoomDatabase() {
         suspend fun populateDatabase(pointDao: PointDao) {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
-            pointDao.deleteAll()
-
-//            var word = Point("Hello")
-//            pointDao.insert(word)
-//            word = Point()
-//            pointDao.insert(word)
+//            pointDao.deleteAll()
+//
+//            var point = Point("HP", POWER.HP, 90)
+//            pointDao.insert(point)
+//            point = Point("MP", POWER.MP, 30)
+//            pointDao.insert(point)
+//            point = Point("SP", POWER.SP, 60)
+//            pointDao.insert(point)
         }
     }
 }

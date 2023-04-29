@@ -11,6 +11,3 @@ data class Point (
     val power: POWER,
     val pointValue: Int
 )
-
-
-//data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
