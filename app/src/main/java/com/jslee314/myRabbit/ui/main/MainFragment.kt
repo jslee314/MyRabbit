@@ -31,8 +31,30 @@ class MainFragment : Fragment() {
         mainViewModel.text.observe(viewLifecycleOwner) {
            // textView.text = it
         }
+
+        mainViewModel.progressBarHP.observe(viewLifecycleOwner){
+            it?.let {
+                binding.progressBarHP.progress = it
+            }
+        }
+
+        mainViewModel.progressBarMP.observe(viewLifecycleOwner){
+            it?.let {
+                binding.progressBarMP.progress = it
+            }
+        }
+
+        mainViewModel.progressBarSP.observe(viewLifecycleOwner){
+            it?.let {
+                binding.progressBarSP.progress = it
+            }
+        }
+
+
         return root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
