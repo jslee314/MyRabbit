@@ -6,8 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "point_table")
 data class Point (
-    @PrimaryKey @ColumnInfo(name = "power")
-    val power: POWER,
+    @PrimaryKey @ColumnInfo(name = "point")
     val point: String,
-    var pointValue: Int,
+    val power: POWER,
+    val pointValue: Int
 )
+
+
+//data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
