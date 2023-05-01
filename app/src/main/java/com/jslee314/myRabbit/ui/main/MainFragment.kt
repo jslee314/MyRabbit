@@ -1,5 +1,7 @@
 package com.jslee314.myRabbit.ui.main
 
+import android.app.Activity
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.jslee314.myRabbit.AppApplication
+import com.jslee314.myRabbit.MainActivity
 import com.jslee314.myRabbit.databinding.FragmentMainBinding
 
 class MainFragment: Fragment() {
@@ -17,11 +20,9 @@ class MainFragment: Fragment() {
     private var _binding: FragmentMainBinding? = null
 
     private val mainViewModel : MainViewModel by viewModels {
-        MainViewModelFactory(90)
+        MainViewModelFactory((activity?.application as AppApplication))
     }
-    //by viewModels { MainViewModelFactory((this as AppApplication).database)
 
-    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,8 +31,6 @@ class MainFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-
-        val root: View = binding.root
 
         mainViewModel.progressBarHP.observe(viewLifecycleOwner){
             it?.let {
@@ -51,11 +50,8 @@ class MainFragment: Fragment() {
             }
         }
 
-
-        return root
+        return binding.root
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()
