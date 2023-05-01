@@ -1,6 +1,9 @@
 package com.jslee314.myRabbit.model
 
 import android.content.Context
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -67,14 +70,17 @@ abstract class RoomDB : RoomDatabase() {
         suspend fun populateDatabase(pointDao: PointDao) {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
-//            pointDao.deleteAll()
-//
-//            var point = Point("HP", POWER.HP, 90)
-//            pointDao.insert(point)
-//            point = Point("MP", POWER.MP, 30)
-//            pointDao.insert(point)
-//            point = Point("SP", POWER.SP, 60)
-//            pointDao.insert(point)
+            pointDao.deleteAll()
+
+            var point = Point("HP", POWER.HP, 90)
+            pointDao.insert(point)
+            point = Point("MP", POWER.MP, 30)
+            pointDao.insert(point)
+            point = Point("SP", POWER.SP, 60)
+            pointDao.insert(point)
+
+            val pointList: LiveData<List<Point>> = pointDao.getPoint().asLiveData()
+            Log.d("jsleeeee","pointList" + pointList)
         }
     }
 }

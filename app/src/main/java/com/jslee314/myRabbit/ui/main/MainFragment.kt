@@ -12,13 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.jslee314.myRabbit.AppApplication
 import com.jslee314.myRabbit.databinding.FragmentMainBinding
 
-class MainFragment : Fragment() {
+class MainFragment: Fragment() {
 
     private var _binding: FragmentMainBinding? = null
 
-  //  private lateinit var mainViewModel : MainViewModel
-//    by viewModels { MainViewModelFactory((this as AppApplication).database)
-//    }
+    private val mainViewModel : MainViewModel by viewModels {
+        MainViewModelFactory(90)
+    }
+    //by viewModels { MainViewModelFactory((this as AppApplication).database)
 
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
@@ -28,10 +29,8 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val mainViewModel =
-            ViewModelProvider(this).get(MainViewModel::class.java)
-
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
 
         mainViewModel.progressBarHP.observe(viewLifecycleOwner){
