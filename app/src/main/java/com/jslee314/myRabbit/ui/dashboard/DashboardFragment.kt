@@ -6,15 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.jslee314.myRabbit.AppApplication
 import com.jslee314.myRabbit.databinding.FragmentDashboardBinding
+import com.jslee314.myRabbit.ui.main.MainViewModel
+import com.jslee314.myRabbit.ui.main.MainViewModelFactory
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private val dashboardViewModel : DashboardViewModel by viewModels {
+        DashboardViewModelFactory((activity?.application as AppApplication))
+    }
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,18 +28,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        dashboardViewModel.title.observe(viewLifecycleOwner) {
+            binding.textDashboard.text = it
         }
 
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

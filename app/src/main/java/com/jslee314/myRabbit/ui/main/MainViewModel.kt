@@ -31,14 +31,14 @@ class MainViewModel(val appApplication: AppApplication) : ViewModel() {
         get() = _progressBarSP
 
     init {
-      // val a = pointList.value!![0].pointValue
-//        for(point in pointList.value!!){
-//            when(point.power){
-//                POWER.HP -> _progressBarHP.value = point.pointValue
-//                POWER.MP -> _progressBarMP.value = point.pointValue
-//                POWER.SP -> _progressBarSP.value = point.pointValue
-//            }
-//        }
+    // val a = pointList.value!![0].pointValue
+    //        for(point in pointList.value!!){
+    //            when(point.power){
+    //                POWER.HP -> _progressBarHP.value = point.pointValue
+    //                POWER.MP -> _progressBarMP.value = point.pointValue
+    //                POWER.SP -> _progressBarSP.value = point.pointValue
+    //            }
+    //        }
     }
 }
 
